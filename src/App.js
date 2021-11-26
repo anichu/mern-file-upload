@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { AppBar } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import ResponsiveAppBar from "./AppBar";
+import FileInput from "./FileInput";
+import Form from "./Form";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<BrowserRouter>
+			<div className="body">
+				<ResponsiveAppBar />
+				<Routes>
+					<Route path="/" exact element={<FileInput />} />
+					<Route path="/signup" exact element={<Form />} />
+				</Routes>
+			</div>
+		</BrowserRouter>
+	);
 }
 
 export default App;
